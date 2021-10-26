@@ -1,5 +1,46 @@
 # sQuery
-Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
+A Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB.
+Are you fed up with the modern js frameworks?
+But you're not allowed to go back to the jQuery days, right?
+
+Well, sQuery just offers you 3S. Speed(native es6 JavaScript), Small(9.5kb), Simple(as jQuery)!
+TypeScript is also supported. (You can just use sq.t.ds)
+
+<table>
+  <thead>
+  <tr>
+  <th>Size</th>
+  <th>sQuery</th>
+  <th>Cash</th>
+  <th>Zepto 1.2.0</th>
+  <th>jQuery Slim 3.4.1</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Unminified</td>
+  <td><strong>13 KB</strong></td>
+  <td>36.5 KB</td>
+  <td>58.7 KB</td>
+  <td><strong>227 KB</strong></td>
+  </tr>
+  <tr>
+  <td>Minified</td>
+  <td><strong>9.35KB</strong></td>
+  <td>16 KB</td>
+  <td>26 KB</td>
+  <td><strong>71 KB</strong></td>
+  </tr>
+  <tr>
+  <td>Minified &amp; Gzipped</td>
+  <td><strong>2.5 KB</strong></td>
+  <td>6 KB</td>
+  <td>9.8 KB</td>
+  <td><strong>24.4 KB</strong></td>
+  </tr>
+  </tbody>
+</table>
+
 
 # CDN
 

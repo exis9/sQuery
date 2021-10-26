@@ -19,14 +19,14 @@ TypeScript is also supported. (You can just use sq.t.ds)
   <tbody>
   <tr>
   <td>Unminified</td>
-  <td><strong>13 KB</strong></td>
+  <td><strong>13.5 KB</strong></td>
   <td>36.5 KB</td>
   <td>58.7 KB</td>
   <td><strong>227 KB</strong></td>
   </tr>
   <tr>
   <td>Minified</td>
-  <td><strong>9 KB</strong></td>
+  <td><strong>9.5 KB</strong></td>
   <td>16 KB</td>
   <td>26 KB</td>
   <td><strong>71 KB</strong></td>

@@ -2,17 +2,17 @@
 Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
 
 # CDN
-```html
+```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
 <script>
   // ↓This is the same to $(function(){ or $(document).ready(){ where in jQuery
   sq(()=>{
     sq('body').css('background', 'skyblue')
-	})
+  })
 </script>
 ```
 
-```html
+```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
 <script>
   // you can also define $ and use it just like jQuery!

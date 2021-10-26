@@ -26,7 +26,7 @@ TypeScript is also supported. (You can just use sq.t.ds)
   </tr>
   <tr>
   <td>Minified</td>
-  <td><strong>9.35KB</strong></td>
+  <td><strong>9 KB</strong></td>
   <td>16 KB</td>
   <td>26 KB</td>
   <td><strong>71 KB</strong></td>

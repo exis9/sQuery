@@ -3,7 +3,7 @@ Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
 
 # CDN
 
-#### The typical CommonJS style
+### The typical CommonJS style
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
 <script>
@@ -14,7 +14,7 @@ Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
 </script>
 ```
 
-#### The typical CommonJS (but more like jQuery) style
+### The typical CommonJS (but more like jQuery) style
 
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">

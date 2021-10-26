@@ -19,7 +19,7 @@ TypeScript is also supported. (You can just use sq.t.ds)
   <tbody>
   <tr>
   <td>Unminified</td>
-  <td><strong>13.5 KB</strong></td>
+  <td><strong>13 KB</strong></td>
   <td>36.5 KB</td>
   <td>58.7 KB</td>
   <td><strong>227 KB</strong></td>
@@ -33,7 +33,7 @@ TypeScript is also supported. (You can just use sq.t.ds)
   </tr>
   <tr>
   <td>Minified &amp; Gzipped</td>
-  <td><strong>2.5 KB</strong></td>
+  <td><strong>2.9 KB</strong></td>
   <td>6 KB</td>
   <td>9.8 KB</td>
   <td><strong>24.4 KB</strong></td>

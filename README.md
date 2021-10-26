@@ -21,7 +21,7 @@ Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
   // ↓The typical jQuery style is also supported!
   $(function(){
     $('body').css('background', 'skyblue')
-	})
+  })
 </script>
 ```
 
@@ -29,33 +29,33 @@ Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB
 ```js
 <script type="module">
   // ↓Defined sq like $ wherein jQuery
-	import {sQuery as sq} from './sq.js';
+  import {sQuery as sq} from './sq.js';
   
   sq(()=>{
     sq('body').css('background', 'skyblue')
-	})
+  })
 </script>
 ```
 
 ```js
 <script type="module">
   // you can also use $ easily just like jQuery!
-	import {sQuery as $} from './sq.js';
+  import {sQuery as $} from './sq.js';
   
   // ↓The typical jQuery style is also supported!
   $(function(){
     $('body').css('background', 'skyblue')
-	})
+  })
 </script>
 ```
 
 # Svelte/Vue\.js/React/Angular
 ```js
 <script>
-	import {sQuery as sq} from './sq.js';
+  import {sQuery as sq} from './sq.js';
   sq(()=>{
     sq('body').css('background', 'skyblue')
-	})
+  })
 </script>
 ```
 

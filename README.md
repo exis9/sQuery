@@ -1,11 +1,14 @@
 # sQuery
-This is a *Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB*.
+This is a **Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
 
 Are you fed up with the modern js frameworks?
-But you're not allowed to go back to the jQuery days, right?
 
-Well, sQuery just offers you 3S. Speed(native es6 JavaScript), Small(9.5kb), Simple(as jQuery)!
-TypeScript is also supported. (You can just use sq.t.ds)
+But you're not allowed to go back to jQuery, right?
+
+Well, sQuery just offers you 3 things. 
+**S**peed(native es6 JavaScript), **S**mall(9.5kb), **S**imple(as jQuery)!
+
+**TypeScript** is also supported! (You can just use sq.t.ds)
 
 <table>
   <thead>
@@ -41,6 +44,8 @@ TypeScript is also supported. (You can just use sq.t.ds)
   </tr>
   </tbody>
 </table>
+
+<h3><i>sQuery's 'S' is for Simple, Small, Speed, and Svelte</i></h3>
 
 # Installation
 

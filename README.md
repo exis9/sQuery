@@ -5,7 +5,9 @@ Are you fed up with the modern js frameworks?
 
 But you don't want to go back to jQuery, right?
 
-Well, sQuery just offers you 3 things. 
+Well, sQuery is great especially for people like you!
+
+sQuery just offers 3 things you want. 
 **S**peed(native es6 JavaScript), **S**mall(9.5kb), **S**imple(as jQuery)!
 
 **TypeScript** is also supported! (You can just use sq.t.ds)

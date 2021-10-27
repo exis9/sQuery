@@ -1,5 +1,6 @@
 # sQuery
-A Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB.
+This is a *Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB*.
+
 Are you fed up with the modern js frameworks?
 But you're not allowed to go back to the jQuery days, right?
 
@@ -41,8 +42,40 @@ TypeScript is also supported. (You can just use sq.t.ds)
   </tbody>
 </table>
 
+# Installation
+
+Just download the zip and set squery.min.js.
+
+```js
+<script src="squery.min.js">
+<script>
+  sq(function(){
+    sq('body').css('background', 'skyblue')
+    sq('body').append('<h1>Hello sQuery!</h1>')
+  })
+</script>
+```
+
 
 # CDN
+
+#### CommonJS (Traditional method)
+
+```html
+https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.js
+
+// minified version
+https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js
+```
+
+#### Module Style (The new ES6 JavaScript import style)
+
+```html
+https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js
+
+// minified version (To react users: Please use the uncompressed version!)
+https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
+```
 
 #### The typical CommonJS style
 ```js

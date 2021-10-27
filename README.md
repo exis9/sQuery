@@ -73,6 +73,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ```
 ↑To React users, I personally recommend the non-minified version since React can't recognize the minified syntax well.
+ (React will minify in the end so it doesn't really matter, though)
 
 #### The typical CommonJS style
 ```js

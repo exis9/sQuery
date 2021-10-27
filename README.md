@@ -44,7 +44,7 @@ TypeScript is also supported. (You can just use sq.t.ds)
 
 # Installation
 
-Just download the zip and set squery.min.js.
+Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/) and set squery.min.js.
 
 ```js
 <script src="squery.min.js">

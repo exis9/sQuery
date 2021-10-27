@@ -63,8 +63,6 @@ Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/)
 
 ```html
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.js
-
-// minified version
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js
 ```
 
@@ -72,10 +70,9 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js
 
 ```html
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js
-
-// minified version (To react users: Please use the uncompressed version!)
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ```
+↑To React users, I personally recommend the non-minified version since React can't recognize the minified syntax well.
 
 #### The typical CommonJS style
 ```js

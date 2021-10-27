@@ -9,7 +9,7 @@ Well, sQuery is great especially for people like you!
 It works great with Svelte, Vue.js and all other modern JavaScript frameworks.
 
 sQuery just offers 3 things you want. 
-**S**peed(native es6 JavaScript), **S**mall(9.5kb), **S**imple(as jQuery)!
+**S**peed(native es6 JavaScript), **S**mall(9.5kb), and **S**imple(as jQuery)!
 
 **TypeScript** is also supported! (You can just use sq.t.ds)
 

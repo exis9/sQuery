@@ -75,7 +75,10 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ↑To React users, I personally recommend the non-minified version since React can't recognize the minified syntax well.
  (React will minify in the end so it doesn't really matter, though)
 
-#### The typical CommonJS style
+
+---
+# CommonJS (Old style)
+
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
 <script>
@@ -86,7 +89,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 </script>
 ```
 
-#### The typical CommonJS (but more like jQuery) style
+#### jQuery-like style
 
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
@@ -100,6 +103,8 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
   })
 </script>
 ```
+
+---
 
 # Module
 ```js

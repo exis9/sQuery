@@ -1,3 +1,5 @@
+[![sQuery](https://i.imgur.com/Jvp6tSW.jpg)](https://github.com/exis9/sQuery)
+
 # sQuery
 This is a **Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
 

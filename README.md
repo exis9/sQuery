@@ -83,11 +83,18 @@ You can also specify the version number instead of latest!
 #### Module Style (The new ES6 JavaScript import style)
 
 ```js
+https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ```
 ↑To React users, I personally recommend the non-minified version since React can't recognize the minified syntax well.
  (React will minify in the end so it doesn't really matter, though)
-
+ 
+```js
+<script type="module">
+  import {sq} from './sq.js';
+  sq('body').html('hello!')
+</script>
+```
 
 ---
 # CommonJS (Easy)

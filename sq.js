@@ -129,6 +129,11 @@ if ( typeof _JQ === 'undefined' )
 
 		get(i=null){if ( i!==null ) return this.el[i]; return this.el}
 		_wh(n,v){
+			if (_jq.isW(this.el))
+			{
+				if (n == 'width')return window.innerWidth
+				return window.innerHeight
+			}
 			if ( v !== undefined )
 			{
 				this.el?.forEach(el => {
@@ -225,7 +230,14 @@ if ( typeof _JQ === 'undefined' )
 			if( !r ) return undefined
 			return this.el[0][n]
 		}
-		html(v=null){return this._fv( 'innerHTML', v )}
+		html(v=null){
+			if (typeof v === 'object' && !Array.isArray(v) && v !== null)
+			{
+				this._fv('innerHTML','').get(0).append(v)
+				return this
+			}
+			return this._fv( 'innerHTML', v )
+		}
 		text(v=null){return this._fv( 'innerText', v )}
 		val(v=null){return this._fv( 'value', v )}
 		css(c, v=null){
@@ -561,4 +573,4 @@ if ( typeof _JQ === 'undefined' )
 	}, sQuery = sq, _SQ = _SF.prototype;
 }
 
-export {sQuery, _SQ}
+export {sQuery, sq, _SQ}

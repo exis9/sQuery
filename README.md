@@ -119,8 +119,8 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 # Module
 ```js
 <script type="module">
-  // ↓Defined sq like $ wherein jQuery
-  import {sQuery as sq} from './sq.js';
+  // ↓sq is like $ wherein jQuery
+  import {sq} from './sq.js';
   
   sq(()=>{
     sq('body').css('background', 'skyblue')
@@ -130,8 +130,8 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 
 ```js
 <script type="module">
-  // you can also use $ easily just like jQuery!
-  import {sQuery as $} from './sq.js';
+  // you can also use $ easily just like jQuery! (import {sQuery as $} is also fine!)
+  import {sq as $} from './sq.js';
   
   // ↓The typical jQuery style is also supported!
   $(function(){

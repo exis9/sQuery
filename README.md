@@ -72,8 +72,12 @@ Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/)
 #### CommonJS (Easy)
 
 ```js
-<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.js">
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
+```
+
+You can also specify the version number instead of latest!
+```js
+<script src="https://cdn.jsdelivr.net/gh/exis9/squery@1.01/squery.min.js">
 ```
 
 #### Module Style (The new ES6 JavaScript import style)

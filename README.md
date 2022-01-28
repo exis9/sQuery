@@ -87,7 +87,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 
 
 ---
-# CommonJS (Old style)
+# CommonJS (Normal style)
 
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">

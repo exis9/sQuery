@@ -91,7 +91,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
  
 ```js
 <script type="module">
-  import {sq} from './sq.js';
+  import {sq} from 'https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js';
   sq('body').html('hello!')
 </script>
 ```

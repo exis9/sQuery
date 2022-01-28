@@ -104,7 +104,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
 <script>
-  // you can also define $ and use it just like jQuery!
+  // you can also define $ and use it just like jQuery! (var $ = sq is also fine!)
   var $ = sQuery
   
   // ↓The typical jQuery style is also supported!
@@ -143,7 +143,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 # Svelte/Vue\.js/React/Angular
 ```js
 <script>
-  import {sQuery as sq} from './sq.js';
+  import {sq} from './sq.js';
   sq(()=>{
     sq('body').css('background', 'skyblue')
   })

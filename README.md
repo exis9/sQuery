@@ -57,7 +57,7 @@ sQuery just offers 3 things you want.
 Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/) and set squery.min.js somewhere in your directory.
 
 ```js
-<script src="squery.min.js">
+<script src="squery.min.js"></script>
 <script>
   sq(function(){
     sq('body').css('background', 'skyblue')
@@ -72,12 +72,12 @@ Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/)
 #### CommonJS (Easy)
 
 ```js
-<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
+<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js"></script>
 ```
 
 You can also specify the version number instead of latest!
 ```js
-<script src="https://cdn.jsdelivr.net/gh/exis9/squery@1.01/squery.min.js">
+<script src="https://cdn.jsdelivr.net/gh/exis9/squery@1.01/squery.min.js"></script>
 ```
 
 #### Module Style (The new ES6 JavaScript import style)
@@ -100,7 +100,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 # CommonJS (Easy)
 
 ```js
-<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
+<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js"></script>
 <script>
   // ↓This is the same to $(function(){ or $(document).ready(){ where in jQuery
   sq(()=>{
@@ -112,7 +112,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 #### jQuery-like style
 
 ```js
-<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js">
+<script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js"></script>
 <script>
   // you can also define $ and use it just like jQuery! (var $ = sq is also fine!)
   var $ = sQuery

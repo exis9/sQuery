@@ -38,14 +38,14 @@ if ( typeof _JQ === 'undefined' )
 			//if (!op.fill) op.fill = 'both'
 			el.animate( kf, op ).onfinish = ()=>{
 				if ( cb ) cb.bind( el )()
-				if ( cb2 ) cb2.bind( el )(), console.log('aaa')
+				if ( cb2 ) cb2.bind( el )()
 			}
 		}
 		fadeIn( el, ms, cb, d='inline-block' ){
 			let o = parseFloat(el.style.opacity)
 			if ( isNaN(o) )
 				o = 1
-			
+
 			this.animate( el, [{'opacity': o}, {'opacity': 1}], {
 				easing: 'ease-in'
 			}, ms, ()=>{
@@ -66,7 +66,7 @@ if ( typeof _JQ === 'undefined' )
 		}
 		each(el, f, i){return f.apply(el, [i])}
 	}
-	
+
 	class _SF {
 		constructor(){
 			this.b = 0
@@ -74,10 +74,12 @@ if ( typeof _JQ === 'undefined' )
 			this.el = []
 			this.disp = []
 			this.fOb = {}
+            this.v = undefined
 		}
 		_setEl(el){
 			this.el = []
 			if ( el ){
+                this.v = el?.value
 				let n = el.length
 				if ( n || el instanceof NodeList )
 					this.el = Array.from(el)
@@ -109,7 +111,7 @@ if ( typeof _JQ === 'undefined' )
 					let d = 'block'
 					if ( !_jq.isW(el) && el !== document )
 						d = window.getComputedStyle(el).display
-					
+
 					if ( d && d !== 'none' )
 						this.disp[cnt] = d
 				}
@@ -191,7 +193,7 @@ if ( typeof _JQ === 'undefined' )
 			this.el?.forEach(el => {_jq.animate( el, kf, op, sp, cb, f)})
 			return this
 		}
-		
+
 		each( f ){
 			let i = 0
 			this.el?.every(el => {
@@ -205,7 +207,7 @@ if ( typeof _JQ === 'undefined' )
 			if( !this.el || !this.el[0] ) return undefined;
 			if ( v === undefined )
 				return this.el[0].getAttribute(a)
-			
+
 			this.el.forEach(el => el.setAttribute(a,v))
 			return this
 		}
@@ -213,7 +215,7 @@ if ( typeof _JQ === 'undefined' )
 			if( !this.el || !this.el[0] ) return undefined;
 			if ( v === undefined )
 				return this.el[0][p]
-			
+
 			this.el.forEach(el => el[p]=v)
 			return this
 		}
@@ -239,7 +241,11 @@ if ( typeof _JQ === 'undefined' )
 			return this._fv( 'innerHTML', v )
 		}
 		text(v=null){return this._fv( 'innerText', v )}
-		val(v=null){return this._fv( 'value', v )}
+		val(v=null){
+            if ( v===null && typeof this.v !== 'undefined' )
+                return this.v
+            return this._fv( 'value', v )
+        }
 		css(c, v=null){
 			if( !this.el || !this.el[0] ) return undefined;
 			if ( c )
@@ -444,8 +450,8 @@ if ( typeof _JQ === 'undefined' )
 			}
 			return this
 		}
-		
-		
+
+
 		_setAC(ev,f){
 			let i = _jq.ac.length
 			_jq.ac[i] = {'ev':ev, 'f':f}
@@ -469,7 +475,7 @@ if ( typeof _JQ === 'undefined' )
 					let tg = e.target
 					while (tg) {
 						if (tg.matches(s)){
-							if ( f.bind( e.target/*el.querySelectorAll(s)*/ )(e) === false )
+							if ( f.bind( /*e.target*/el.querySelectorAll(s) )(e) === false )
 							{
 								e.preventDefault()
 								e.stopImmediatePropagation()
@@ -487,7 +493,8 @@ if ( typeof _JQ === 'undefined' )
 		}
 		on(ev, f){
 			let u=(e)=>{
-				if ( f.bind( e.target/*this.el*/ )(e) === false )
+                //console.log('u: ', e.path, e.target)
+				if ( f.bind( e.currentTarget/*this.e.target or this.el*/ )(e) === false )
 				{
 					e.preventDefault()
 					e.stopImmediatePropagation()
@@ -522,7 +529,7 @@ if ( typeof _JQ === 'undefined' )
 		}
 		trg(ev){this.el?.forEach(el=>el.dispatchEvent(new Event(ev)));return this}
 		trigger(ev){this.trg(ev)}
-		
+
 		_f( funcName, ...args ){this.el?.forEach(el => {_jq[funcName]( el, ...args )});return this}
 		remove(){return this._f('remove')}
 		before( h ){return this._f('before', h)}
@@ -534,7 +541,7 @@ if ( typeof _JQ === 'undefined' )
 		hasClass( n ){return this.el[0]?.classList.contains(n)?true:false}
 		removeClass( n ){return this._f('removeClass', n)}
 		toggleClass( n ){return this._f('toggleClass', n)}
-		
+
 
 		_fsd( funcName, ...args ){
 			if( !this.el ) return this

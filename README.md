@@ -1,6 +1,9 @@
 [![sQuery](https://i.imgur.com/Jvp6tSW.jpg)](https://github.com/exis9/sQuery)
 
 # sQuery
+
+[sQuery Official Site](https://squery.vercel.app/)
+
 This is a **Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
 
 Are you fed up with the modern js frameworks?
@@ -54,6 +57,7 @@ sQuery just offers 3 things you want.
 
 # Installation
 
+[sQuery Official Site](https://squery.vercel.app/)
 Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/) and set squery.min.js somewhere in your directory.
 
 ```js
@@ -162,5 +166,5 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 
 
 # More Documentation?
-Sorry! I've been working on a better documentation/API list right now! Please wait!
-
+See [sQuery Official Site](https://squery.vercel.app/)
+All sQuery methods and installation tutorials!

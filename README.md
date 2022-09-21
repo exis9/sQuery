@@ -25,7 +25,7 @@ sQuery just offers 3 things you want.
   <th>sQuery</th>
   <th>Cash</th>
   <th>Zepto 1.2.0</th>
-  <th>jQuery Slim 3.4.1</th>
+  <th>jQuery Slim 3.6.1</th>
   </tr>
   </thead>
   <tbody>
@@ -34,21 +34,21 @@ sQuery just offers 3 things you want.
   <td><strong>13 KB</strong></td>
   <td>36.5 KB</td>
   <td>58.7 KB</td>
-  <td><strong>227 KB</strong></td>
+  <td><strong>238 KB</strong></td>
   </tr>
   <tr>
   <td>Minified</td>
   <td><strong>9.5 KB</strong></td>
   <td>16 KB</td>
   <td>26 KB</td>
-  <td><strong>71 KB</strong></td>
+  <td><strong>74 KB</strong></td>
   </tr>
   <tr>
   <td>Minified &amp; Gzipped</td>
   <td><strong>2.9 KB</strong></td>
   <td>6 KB</td>
   <td>9.8 KB</td>
-  <td><strong>24.4 KB</strong></td>
+  <td><strong>24.8 KB</strong></td>
   </tr>
   </tbody>
 </table>

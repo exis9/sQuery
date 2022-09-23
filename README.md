@@ -4,7 +4,7 @@
 
 [sQuery Official Site](https://squery.vercel.app/)
 
-This is a **Very Small ES6 Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
+This is a **Very Small ES6+ Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
 
 Are you fed up with the modern js frameworks?
 

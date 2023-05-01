@@ -1,16 +1,16 @@
 /*eslint-disable*/
 'use strict';
 
-if ( typeof _JQ === 'undefined' )
+if ( typeof _PQ === 'undefined' )
 {
-	class _JQ {
+	class _PQ {
 		constructor(){this.ac=[];this.wa=[]}
 		isW(v){
 			const wStr = Object.prototype.toString.call(window)
 			function isWindow(arg){
-				let e,str,self,hasSelf
-				str = Object.prototype.toString.call(arg)
-				switch (wStr){case '[object DOMWindow]':case '[object Window]':case '[object global]': return str === wStr}
+				let s,self,hasSelf
+				s = Object.prototype.toString.call(arg)
+				switch (wStr){case '[object DOMWindow]':case '[object Window]':case '[object global]': return s === wStr}
 				if ('self' in arg)
 				{
 					hasSelf = arg.hasOwnProperty('self')
@@ -64,26 +64,9 @@ if ( typeof _JQ === 'undefined' )
 			}
 		}
 		isVisible(el){
-			if (!(el instanceof Element)) return false
-			const style = getComputedStyle(el)
-			if (style.display === 'none') return false
-			if (style.visibility !== 'visible') return false
-			if (style.opacity < 0.1) return false
-			if (el.offsetWidth + el.offsetHeight + el.getBoundingClientRect().height + el.getBoundingClientRect().width === 0)
-				return false
-
-			const elemCenter = {
-				x: el.getBoundingClientRect().left + el.offsetWidth/2,
-				y: el.getBoundingClientRect().top + el.offsetHeight/2
-			}
-			if (elemCenter.x < 0) return false
-			if (elemCenter.x > (document.documentElement.clientWidth || window.innerWidth)) return false
-			if (elemCenter.y < 0) return false
-			if (elemCenter.y > (document.documentElement.clientHeight || window.innerHeight)) return false
-			let pointContainer = document.elementFromPoint(elemCenter.x, elemCenter.y)
-			do {
-				if (pointContainer === el) return true
-			} while (pointContainer = pointContainer.parentNode)
+			let s = window.getComputedStyle(el)
+			if (s.display !== 'none' && el?.offsetHeight)
+				return true
 			return false
 		}
 		fadeIn( el, ms, cb, d='inline-block' ){
@@ -129,48 +112,41 @@ if ( typeof _JQ === 'undefined' )
 					this.el = Array.from(el)
 				else if ( n !== 0 )
 					this.el = [el]
-				else if (_jq.isW(el))
+				else if (_p.isW(el))
 					this.el = el
 			}
 			this.length = this.el.length
 			if ( !this.b )
 				this.b = 1
 			
-			this._saveDisp()
+			this._svD()
 		}
 		_th(){return this}
-		_saveDisp(){
+		_svD(){
 			this.disp = []
 			let cnt = 0
-			if ( _jq.isW(this.el) )
+			if ( _p.isW(this.el) )
 				return
 			this.el?.forEach(el => {
 				this.disp[cnt] = 'none'
 				if ( el ){
 					let d = 'block'
-					if ( !_jq.isW(el) && el !== document )
+					if ( !_p.isW(el) && el !== document )
 						d = window.getComputedStyle(el).display
 
 					if ( d && d !== 'none' )
 						this.disp[cnt] = d
 				}
-				cnt++
+				++cnt
 			})
 		}
 		setEl(el){ this._setEl(el); return this}
 		doc(){ return this.setEl( document ) }
 		win(){ return this.setEl( window ) }
 		ob(el){ return this.setEl( el ) } //this or other elements
-
-		q(s){ return this.setEl( document.querySelector(s) ) }
-		qa(s){ return this.setEl( document.querySelectorAll(s) ) }
-		id(s){ return this.setEl( document.getElementById(s) ) }
-		cl(s){ return this.setEl( document.getElementsByClassName(s) ) }
-		tg(s){ return this.setEl( document.getElementsByTagName(s) ) }
-
 		get(i=null){if ( i!==null ) return this.el[i]; return this.el}
 		_wh(n,v){
-			if (_jq.isW(this.el))
+			if (_p.isW(this.el))
 			{
 				if (n == 'width')return window.innerWidth
 				return window.innerHeight
@@ -197,14 +173,15 @@ if ( typeof _JQ === 'undefined' )
 		position(){return this.pos()}
 		_fd( fn, ...args ){
 			let i=0
-			this.el?.forEach(el => {_jq[fn]( el, ...args, this.disp[ i++ ] )})
+			this.el?.forEach(el => {_p[fn]( el, ...args, this.disp[ i++ ] )})
 			return this
 		}
 		show(){return this._fd('show')}
 		fadeIn( ms=500, cb ){return this._fd('fadeIn', ms, cb)}
-		isVisible(){return _jq.isVisible(this.el)}
+		isVisible(){return _p.isVisible(this.el)}
+		_u(){if( !this.el || !this.el[0] ) return 1}
 		_vs(n,v){
-			if( !this.el || !this.el[0] ) return undefined;
+			if( this._u() ) return undefined;
 			if (v !== undefined){this.el?.forEach(el=>el[n] = v);return this}
 			return this.el[0][n]
 		}
@@ -214,12 +191,12 @@ if ( typeof _JQ === 'undefined' )
 		scroll(y,b){
 			if (b) b = 'instant'
 			else b = 'smooth'
-			if (_jq.isW(this.el)) return window.scroll({top: y, behavior: b})
+			if (_p.isW(this.el)) return window.scroll({top: y, behavior: b})
 			else this.el?.forEach(el=>el.scroll({top: y, behavior: b}))
 			return this
 		}
 		scrollToElement(o=50,b){
-			if( !this.el || !this.el[0] ) return this;
+			if( this._u() ) return this;
 			if (b) b = 'instant'
 			else b = 'smooth'
 			const br = document.body.getBoundingClientRect().top,
@@ -230,29 +207,38 @@ if ( typeof _JQ === 'undefined' )
 		animate( kf, op, sp, cb ){
 			let f=()=>{this.css(kf[1])}
 			if ( typeof op === 'number' )cb = f
-			this.el?.forEach(el => {_jq.animate( el, kf, op, sp, cb, f)})
+			this.el?.forEach(el => {_p.animate( el, kf, op, sp, cb, f)})
 			return this
 		}
 
 		each( f ){
 			let i = 0
 			this.el?.every(el => {
-				if ( _jq.each( el, f, i++ ) === false )
+				if ( _p.each( el, f, i++ ) === false )
 					return false
 				return true
 			})
 			return this
 		}
 		attr(a, v){
-			if( !this.el || !this.el[0] ) return undefined;
+			if(this._u()) return undefined
 			if ( v === undefined )
 				return this.el[0].getAttribute(a)
 
 			this.el.forEach(el => el.setAttribute(a,v))
 			return this
 		}
+		data(a, v){
+			if(this._u()) return undefined
+			if ( v === undefined )
+				return this.el[0].dataset[a]
+
+			this.el.forEach(el => el.dataset[a]=v)
+			return this
+		}
+		removeData(a){this.el.forEach(el => delete el.dataset[a]);return this}
 		prop(p, v){
-			if( !this.el || !this.el[0] ) return undefined;
+			if(this._u()) return undefined
 			if ( v === undefined )
 				return this.el[0][p]
 
@@ -273,12 +259,17 @@ if ( typeof _JQ === 'undefined' )
 			return this.el[0][n]
 		}
 		html(v=null){
-			if (typeof v === 'object' && !Array.isArray(v) && v !== null)
+			if ( v !== null && typeof v === 'object' && !Array.isArray(v) )
 			{
 				this._fv('innerHTML','').get(0).append(v)
 				return this
 			}
 			return this._fv( 'innerHTML', v )
+		}
+		oHtml(v){
+			if ( typeof v !== 'undefined' )
+				return this.replaceWith(v)
+			return this.el[0]?.outerHTML
 		}
 		text(v=null){return this._fv( 'innerText', v )}
 		val(v=null){
@@ -287,7 +278,7 @@ if ( typeof _JQ === 'undefined' )
 			return this._fv( 'value', v )
 		}
 		css(c, v=null){
-			if( !this.el || !this.el[0] ) return undefined;
+			if(this._u()) return undefined
 			if ( c )
 			{
 				let set = (c, v)=>{
@@ -378,9 +369,10 @@ if ( typeof _JQ === 'undefined' )
 		last(){if ( this.el )return sq(this.el[this.el.length-1])._th();return this}
 		index(){
 			if (!this.el) return -1
-			let i = 0
+			let i = 0, t = this.el[0]
 			while (this.el[0] = this.el[0].previousElementSibling)
-				i++
+				++i
+			this.el[0] = t
 			return i
 		}
 		slice(s,e){
@@ -390,7 +382,7 @@ if ( typeof _JQ === 'undefined' )
 				if (!e)e = n
 				if (s < 0)s = n+s
 				if (e < 0)e = n+e
-				for ( let i=s; i < e; i++ )
+				for ( let i=s; i < e; ++i )
 					a.push(this.el[i])
 			}
 			return sq(a)._th()
@@ -489,23 +481,23 @@ if ( typeof _JQ === 'undefined' )
 		}
 
 
-		_setAC(ev,f){
-			let i = _jq.ac.length
-			_jq.ac[i] = {'ev':ev, 'f':f}
+		_sAC(ev,f){
+			let i = _p.ac.length
+			_p.ac[i] = {'ev':ev, 'f':f}
 			return i
 		}
-		_setSQA(el,ev,i){
+		_sSA(el,ev,i){
 			if (!el.getAttribute)return
 			let v = el.getAttribute('sq-'+ev)
 			if (!v)v = ''
 			v += ',' + i
 			el.setAttribute('sq-'+ev, v)
 		}
-		_setSQW(ev,i){
-			let v = _jq.wa[ev]
+		_sSW(ev,i){
+			let v = _p.wa[ev]
 			if (!v)v = ''
 			v += ',' + i
-			_jq.wa[ev]=v
+			_p.wa[ev]=v
 		}
 		onf(ev, s, f){
 			this.el?.forEach(el=>{
@@ -523,13 +515,19 @@ if ( typeof _JQ === 'undefined' )
 						tg = tg.parentElement
 					}
 				}
-				let i = this._setAC( ev, u )
-				el.querySelectorAll(s)?.forEach(q=>this._setSQA(q,ev,i))
+				let i = this._sAC( ev, u )
+				el.querySelectorAll(s)?.forEach(q=>this._sSA(q,ev,i))
 				el.addEventListener( ev, u )
 			})
 			return this
 		}
 		on(ev, f){
+			const a = ev.split(' ')
+			if ( a.length > 1 )
+			{
+				a.forEach(v=>this.on(v,f))
+				return this
+			}
 			let u=(e)=>{
 				//console.log('u: ', e.path, e.target)
 				if ( f.bind( e.currentTarget/*this.e.target or this.el*/ )(e) === false )
@@ -538,28 +536,34 @@ if ( typeof _JQ === 'undefined' )
 					e.stopImmediatePropagation()
 				}
 			}
-			let i = this._setAC(ev,u)
-			if (_jq.isW(this.el))
-				this._setSQW(ev,i), window.addEventListener(ev,u)
+			let i = this._sAC(ev,u)
+			if (_p.isW(this.el))
+				this._sSW(ev,i), window.addEventListener(ev,u)
 			else
-				this.el?.forEach(el=>{this._setSQA(el,ev,i);el.addEventListener(ev,u)})
+				this.el?.forEach(el=>{this._sSA(el,ev,i);el.addEventListener(ev,u)})
 			return this
 		}
 		off(ev){
-			if (_jq.isW(this.el)){
-				let v = _jq.wa[ev], a = v?.split(',')
+			const a = ev.split(' ')
+			if ( a.length > 1 )
+			{
+				a.forEach(v=>this.off(v))
+				return this
+			}
+			if (_p.isW(this.el)){
+				let v = _p.wa[ev], a = v?.split(',')
 				a?.forEach(t=>{
-					if ( _jq.ac[t]?.f )
-						window.removeEventListener( ev, _jq.ac[t].f )
+					if ( _p.ac[t]?.f )
+						window.removeEventListener( ev, _p.ac[t].f )
 				})
 			} else
 				this.el?.forEach(el=>{
 					let v = el.getAttribute('sq-'+ev), a = v?.split(',')
 					a?.forEach(t=>{
-						if ( _jq.ac[t]?.f )
+						if ( _p.ac[t]?.f )
 						{
-							el.removeEventListener( ev, _jq.ac[t].f )
-							document.removeEventListener( ev, _jq.ac[t].f )
+							el.removeEventListener( ev, _p.ac[t].f )
+							document.removeEventListener( ev, _p.ac[t].f )
 						}
 					})
 				})
@@ -567,8 +571,7 @@ if ( typeof _JQ === 'undefined' )
 		}
 		trg(ev,b=1,c=0){this.el?.forEach(el=>{let v = new Event(ev, {bubbles:b,composed:c});el.dispatchEvent(v)});return this}
 		trigger(ev,b=1,c=0){this.trg(ev,b,c)}
-
-		_f( funcName, ...args ){this.el?.forEach(el => {_jq[funcName]( el, ...args )});return this}
+		_f( funcName, ...args ){this.el?.forEach(el => {_p[funcName]( el, ...args )});return this}
 		remove(){return this._f('remove')}
 		before( h ){return this._f('before', h)}
 		after( h ){return this._f('after', h)}
@@ -579,12 +582,10 @@ if ( typeof _JQ === 'undefined' )
 		hasClass( n ){return this.el[0]?.classList.contains(n)?true:false}
 		removeClass( n ){return this._f('removeClass', n)}
 		toggleClass( n ){return this._f('toggleClass', n)}
-
-
 		_fsd( funcName, ...args ){
 			if( !this.el ) return this
-			this._saveDisp()
-			this.el.forEach(el => {_jq[funcName]( el, ...args )})
+			this._svD()
+			this.el.forEach(el => {_p[funcName]( el, ...args )})
 			return this
 		}
 		fadeOut( ms=500, cb ){return this._fsd('fadeOut', ms, cb)}
@@ -592,8 +593,8 @@ if ( typeof _JQ === 'undefined' )
 		isPageLoaded(){let s=document.readyState;if(s==='complete'||s==='loaded')return true;return false}
 	}
 
-	let _jq = new _JQ()
-	var sq = function(s, t){
+	let _p = new _PQ()
+	var sq = function(s){
 		let _q = new _SF(), c = typeof s
 		if ( c !== 'string' )
 		{
@@ -603,17 +604,11 @@ if ( typeof _JQ === 'undefined' )
 				return
 			}
 			switch ( s ){
-				case document: return _q.doc(s)
-				case window: return _q.win(s)
-				default: return _q.ob(s)
+			case document: return _q.doc(s)
+			case window: return _q.win(s)
 			}
+			return _q.ob(s)
 		}
-		switch (t){
-			case 'id': return _q.id(s.replace('#',''))
-			case 'class': case 'cl': return _q.cl(s.replace('.',''))
-			case 'tag': case 'tg': return _q.tg(s)
-			case 'q': return _q.q(s)
-			default: return _q.qa(s)
-		}
+		return _q.setEl( document.querySelectorAll(s) )
 	}, sQuery = sq, _SQ = _SF.prototype;
 }

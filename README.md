@@ -4,14 +4,14 @@
 
 [sQuery Official Site](https://squery.vercel.app/)
 
-This is a **Very Small ES6+ Native Speed jQuery for Svelte, Vue3, React, Angular, and WEB**.
+This is a **Very Small ES6+ Native Speed jQuery for Svelte, Vue3, React, SolidJS, and WEB**.
 
 Are you fed up with the modern js frameworks?
 
 But you don't want to go back to jQuery, right?
 
 Well, sQuery is great especially for people like you!
-It works great with Svelte, Vue.js and all other modern JavaScript frameworks.
+It works great with Svelte, SolidJS, Vue.js and all other modern JavaScript frameworks.
 
 sQuery just offers 3 things you want. 
 **S**peed(native es6 JavaScript), **S**mall(9.5kb), and **S**imple(as jQuery)!

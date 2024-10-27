@@ -154,6 +154,15 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 </script>
 ```
 
+# TypeScript with Module
+If you use TypeScript, you might need .d.ts file for the root directory of your project.
+
+```js
+declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" { //← Change the file path depends on your sQuery file location
+    export const sQuery: any, sq: any, _SQ: any;
+}
+```
+
 # Svelte/Vue\.js/React/Angular
 ```js
 <script>

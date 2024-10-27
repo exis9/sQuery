@@ -154,11 +154,13 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 </script>
 ```
 
-# TypeScript with Module
-If you use TypeScript, you might need .d.ts file for the root directory of your project.
+# Cannot find module Error (For TypeScript Users)
+If you encounter a module import error with TypeScript, you probably need a .d.ts file.
+Create a file named "sq.d.ts" to the project root directory with the following code:
 
 ```js
-declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" { //← Change the file path depends on your sQuery file location
+// ↓ Change the file path depends on your sQuery file location
+declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" {
     export const sQuery: any, sq: any, _SQ: any;
 }
 ```

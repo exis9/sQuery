@@ -156,7 +156,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 
 # Cannot find module Error (For TypeScript Users)
 If you encounter a module import error with TypeScript, you probably need a .d.ts file.
-Create a file named "sq.d.ts" to the project root directory with the following code:
+Create a file named "sq.d.ts" in the project directory with the following code:
 
 ```
 // ↓ Change the file path depends on your sQuery file location
@@ -164,6 +164,12 @@ declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" {
     export const sQuery: any, sq: any, _SQ: any;
 }
 ```
+also if you have tsconfig.json, you probably should change "noImplicitThis" to false.
+```
+// search noImplicitThis in tsconfig.json and change it to false
+"noImplicitThis": false, 
+```
+
 
 # Svelte/Vue\.js/React/Angular
 ```js

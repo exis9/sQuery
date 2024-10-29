@@ -167,7 +167,10 @@ declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" {
 also if you have tsconfig.json, you probably should change "noImplicitThis" to false to kill the "this implicity" error.
 ```
 // search noImplicitThis in tsconfig.json and change it to false
-"noImplicitThis": false, 
+"noImplicitThis": false,
+
+// search "module" in tsconfig.json and change it to ES6 (If you encounter the "Uncaught ReferenceError: exports is not defined" error)
+"module": "ES6",
 ```
 
 

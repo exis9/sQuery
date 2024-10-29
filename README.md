@@ -164,7 +164,7 @@ declare module "https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js" {
     export const sQuery: any, sq: any, _SQ: any;
 }
 ```
-also if you have tsconfig.json, you probably should change "noImplicitThis" to false.
+also if you have tsconfig.json, you probably should change "noImplicitThis" to false to kill the "this implicity" error.
 ```
 // search noImplicitThis in tsconfig.json and change it to false
 "noImplicitThis": false, 

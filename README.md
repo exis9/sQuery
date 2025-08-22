@@ -73,7 +73,7 @@ Just download the latest [sQuery.zip](https://github.com/exis9/sQuery/releases/)
 
 # CDN
 
-#### CommonJS (Easy)
+#### Regular JavaScript (Easy)
 
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js"></script>
@@ -101,7 +101,7 @@ https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 ```
 
 ---
-# CommonJS (Easy)
+# Regular JavaScript (Easy)
 
 ```js
 <script src="https://cdn.jsdelivr.net/gh/exis9/squery@latest/squery.min.js"></script>

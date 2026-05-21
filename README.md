@@ -175,7 +175,7 @@ also if you have tsconfig.json, you probably should change "noImplicitThis" to f
 
 # Want a .d.ts file? (For TypeScript Users)
 ### Solution 1 (If you want to use sQuery like JavaScript)
-This is good for migrations from your JS projects into TS projects!
+This is good for migrating your JS projects to TS projects!
 You can simply create sq.d.ts file and put in all the method definitions like this!
 ```
 interface SQueryCollection {

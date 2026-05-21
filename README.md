@@ -173,6 +173,77 @@ also if you have tsconfig.json, you probably should change "noImplicitThis" to f
 "module": "ES6",
 ```
 
+# Want a .d.ts file? (For TypeScript Users)
+### Solution 1 (If you want to use sQuery like JavaScript)
+..or, you can simply create sq.d.ts file and put in all the method definitions like this!
+```
+interface SQueryCollection {
+  length: number;
+  get(index: number): any;
+  remove(): this;
+  append(content: any): this;
+  html(content?: string): any;
+  text(): string;
+  attr(name: string, value?: any): any;
+  prop(name: string, value?: any): any;
+  css(name: string, value: string): this;
+  closest(selector: string): SQueryCollection;
+  find(selector: string): SQueryCollection;
+  each(callback: (this: any, index: number, element: any) => unknown): this;
+  on(eventName: string, handler: (this: any, event: Event) => unknown): this;
+  off(eventName?: string): this;
+  trg(eventName: string): this;
+  val(value?: any): any;
+  addClass(className: string): this;
+  removeClass(className: string): this;
+  fadeIn(duration?: number, callback?: () => void): this;
+  fadeOut(duration?: number, callback?: () => void): this;
+}
+
+declare const sq: {
+  (selector: string): SQueryCollection;
+  (element: any): SQueryCollection;
+  (callback: () => void): void;
+};
+```
+### Solution 2 (If you're a hardcore TypeScript user)
+Write sq.d.ts like this (Example)
+```
+type SQueryValue = string | number | boolean | null | undefined;
+
+interface SQueryCollection<TElement extends Element = Element> {
+  length: number;
+  get<TTarget extends Element = TElement>(index: number): TTarget | undefined;
+  remove(): this;
+  append(content: string | Node): this;
+  html(): string;
+  html(content: string): this;
+  text(): string;
+  attr(name: string): string | undefined;
+  attr(name: string, value: SQueryValue): this;
+  prop(name: string): unknown;
+  prop(name: string, value: SQueryValue): this;
+  css(name: string, value: string): this;
+  closest<TTarget extends Element = Element>(selector: string): SQueryCollection<TTarget>;
+  find<TTarget extends Element = Element>(selector: string): SQueryCollection<TTarget>;
+  each(callback: (this: TElement, index: number, element: TElement) => unknown): this;
+  on(eventName: string, handler: (this: TElement, event: Event) => unknown): this;
+  off(eventName?: string): this;
+  trg(eventName: string): this;
+  val(): string;
+  val(value: SQueryValue): this;
+  addClass(className: string): this;
+  removeClass(className: string): this;
+  fadeIn(duration?: number, callback?: () => void): this;
+  fadeOut(duration?: number, callback?: () => void): this;
+}
+
+declare function sq(selector: string): SQueryCollection;
+declare function sq<TElement extends Element>(element: TElement): SQueryCollection<TElement>;
+declare function sq(element: EventTarget | null | undefined): SQueryCollection;
+declare function sq(callback: () => void): void;
+```
+
 
 # Svelte/Vue\.js/React/Angular
 ```js

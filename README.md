@@ -94,8 +94,8 @@ or
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.js (unminified)
 https://cdn.jsdelivr.net/gh/exis9/squery@latest/sq.min.js
 or
-https://unpkg.com/@exis9/squery@1.0.4/sq.js (unminified)
-https://unpkg.com/@exis9/squery@1.0.4/sq.min.js
+https://unpkg.com/@exis9/squery@latest/sq.js (unminified)
+https://unpkg.com/@exis9/squery@latest/sq.min.js
 ```
 ↑To React users, I personally recommend the non-minified version since React can't recognize the minified syntax well.
  (React will minify in the end so it doesn't really matter, though)
